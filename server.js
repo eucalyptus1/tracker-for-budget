@@ -27,3 +27,11 @@ app.use(require("./routes/api.js"));
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
+
+function saveRecord(record) {
+  const transaction =  db.transaction(['new_budget'], 'readwrite');
+
+  const budgetObjectStore = transaction.objectStore('new_budget');
+
+  budgetObjectStore.add(record);
+}
