@@ -16,14 +16,10 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(MONGODB_URI, 'mongodb://localhost:3001', {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false
 });
-
-// app.get('/index', (req, res) => {
-//   res.sendFile(path.join(__dirname, './public/index.html'));
-// });
 
 // routes
 app.use(require("./routes/api.js"));
